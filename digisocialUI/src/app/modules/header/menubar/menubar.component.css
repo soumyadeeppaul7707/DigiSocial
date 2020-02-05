@@ -1,0 +1,13 @@
+.menustyling{
+    text-align: center;
+    font-size: 150%;
+    font-weight: 100;
+    margin: 10px;
+}
+.menunamestyling{
+    border-bottom:1px solid  #203864 ;
+}
+.menubarstyling{
+    height :60px;
+    
+}
