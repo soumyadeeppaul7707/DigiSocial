@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './modules/header/header.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { FooterModule } from './modules/footer/footer.module';
-import { NavbarComponent } from './modules/header/navbar/navbar.component';
-import { MenubarComponent } from './modules/header/menubar/menubar.component';
 
 @NgModule({
   declarations: [
