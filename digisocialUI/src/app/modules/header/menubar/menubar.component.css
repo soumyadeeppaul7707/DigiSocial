@@ -3,11 +3,8 @@
     font-size: 150%;
     font-weight: 100;
     margin: 10px;
+    height: 6vh;
 }
 .menunamestyling{
     border-bottom:1px solid  #203864 ;
-}
-.menubarstyling{
-    height :60px;
-    
 }

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthenticationRoutingModule } from './modules/authentication/authentication-routing.module';
 
 const routes: Routes = [
-  // {path:'',loadChildren: './authentication/authentication.module#AuthenticationModule'}
+   {path:'',loadChildren: './modules/authentication/authentication.module#AuthenticationModule'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), AuthenticationRoutingModule ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
