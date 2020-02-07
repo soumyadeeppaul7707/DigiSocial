@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
+  {path:"" , redirectTo: 'authentication/login', pathMatch: 'full'},
+  {path:"authentication" , redirectTo: 'authentication/login', pathMatch: 'full'},
   {path:"authentication/login" , component: LoginComponent},
   {path:"authentication/signup" , component: SignupComponent}
 ];
