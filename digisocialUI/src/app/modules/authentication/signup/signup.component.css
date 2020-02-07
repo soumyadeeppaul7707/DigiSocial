@@ -1,0 +1,86 @@
+.signup{
+    height : 85vh ;
+}
+
+
+.height1{
+    height : 5%;
+}
+
+.height2{
+    height : 75%;
+}
+
+.signupform{
+    border-radius: 50px;
+    
+}
+
+.whitebackground{
+    background-color: white;
+}
+
+
+.formstyling{
+    margin-top : 0vh;
+}
+
+.spacestyling{
+    margin : 5px;
+}
+
+.buttondivstyling{
+    width : 100%;
+}
+
+.buttonstyling{
+    border: 1px solid #203864 ;
+    border-radius:15px;
+    color: #203864 ;
+    background-color: white;
+    width : 100%;
+    /* height : 150%; */
+    font-family : Calibri;
+    font-size:200%;
+}
+
+.buttonstyling:hover{
+    background-color: #203864 ;
+    color : white;
+
+}
+
+.buttonstyling:active{
+    box-shadow: none;
+    background-color: #203864 ;
+    color : white;
+
+}
+
+.buttonstyling:focus{
+    box-shadow: none;
+
+}
+
+.togglescreenoptionstyling{
+    font-size: 15px;
+    text-align: center;
+}
+
+
+::placeholder {
+    font-family : Calibri;
+    text-align: center;
+    font-size: 150%;
+    opacity: 0.3;
+}
+
+input{
+    border-radius: 10px;
+    border : none;
+    height: 5vh;
+}
+
+input:focus {
+    border: 1px solid lightblue;
+}
