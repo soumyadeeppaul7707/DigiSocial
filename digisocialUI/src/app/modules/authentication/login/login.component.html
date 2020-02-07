@@ -23,6 +23,48 @@
             <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
             <div class="col-lg-10 col-md-10 col-sm-12 col-12 loginform whitebackground">
 
+              <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+
+
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formstyling">
+                    <div class="spacestyling"></div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter your Username" formControlName="username" class="form-control"/>
+                    </div>
+                    <div class="spacestyling"></div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Enter your password" formControlName="password" class="form-control" />
+                    </div>
+                    <div class="spacestyling"></div>
+                    <div class="form-group">
+                      
+                      <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-1 col-1"></div>
+                        <div class="col-lg-8 col-md-8 col-sm-10 col-10 buttondivstyling">
+                            <button class="btn  buttonstyling">Login Now!</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-1 col-1"></div>
+                      </div>
+                                         
+                    </div>
+                </form>
+
+                
+                <div class="togglescreenoptionstyling">
+                  Still don’t have an account? <a href=#>Signup now!</a>
+                </div>
+                
+
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+              </div>
+                           
+
+
+
             </div>
             <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
 

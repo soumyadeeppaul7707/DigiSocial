@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationRoutingModule } from './modules/authentication/authentication-routing.module';
 
 const routes: Routes = [
-   {path:'',loadChildren: './modules/authentication/authentication.module#AuthenticationModule'}
+   {path:'authentication',loadChildren: './modules/authentication/authentication.module#AuthenticationModule'}
 ];
 
 @NgModule({
