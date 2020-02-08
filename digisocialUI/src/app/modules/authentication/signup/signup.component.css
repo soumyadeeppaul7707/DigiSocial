@@ -85,3 +85,8 @@ input{
 input:focus {
     border: 1px solid lightblue;
 }
+
+.yesinmodal{
+    color : white;
+    text-decoration: none;
+}

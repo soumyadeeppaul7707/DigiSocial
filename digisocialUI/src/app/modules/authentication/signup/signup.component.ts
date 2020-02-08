@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   onSubmit(){
     console.log("signup clicked.");
   }
