@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './modules/header/header.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { FooterModule } from './modules/footer/footer.module';
+import { RecentsModule } from './modules/body/recents/recents.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterModule } from './modules/footer/footer.module';
     AppRoutingModule,
     AuthenticationModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    RecentsModule
   ],
   exports:[],
   providers: [],

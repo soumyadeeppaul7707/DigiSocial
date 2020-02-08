@@ -10,6 +10,11 @@
     background-color: #F1F1F1;
 }
 
+.whitebackground{
+    background-color: white;
+}
+
+
 .fullwidth{
     width : 98vw;
 }

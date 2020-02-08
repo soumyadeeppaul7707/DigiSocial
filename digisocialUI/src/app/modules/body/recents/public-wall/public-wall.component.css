@@ -1,0 +1,9 @@
+.imagesizing{
+    height : 400px;
+    width : 500px;
+}
+
+.imageheightwidth{
+    max-height: 100%;
+    max-width: 100%;
+}
