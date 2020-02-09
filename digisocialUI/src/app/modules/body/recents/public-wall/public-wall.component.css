@@ -17,3 +17,27 @@
     display: flex;
     justify-content: center;
 }
+
+.commentbutton:focus{
+    box-shadow: none;
+}
+
+.likebutton:active{
+    color: red;
+}
+
+.likebutton:visited{
+    color: red;
+}
+
+.btn:focus{
+    box-shadow: none;
+}
+
+.commentdivstyling{
+}
+
+.inputstyling{
+    height : 100%;
+    width : 100%;
+}

@@ -10,54 +10,18 @@
             Soumyadeep Paul   25-05-2020 19:20
           </div>
           <div class="flex-image-container"><img src="assets/1.jpg" class="contain imageheightwidth" alt=""/></div>
-          <div>Like Comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 Likes and 26 Comments</div>
+          <div>
+            <button class="btn"> <i class="far fa-thumbs-up likebutton"></i> </button>
+            <button class="commentbutton btn" data-toggle="modal" data-target="#commentModalCenter">Comment</button>  
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 Likes and 26 Comments
+          </div>
           <div class="flex-container backgroundcolor">................</div>
           <div class="flex-container backgroundcolor">asudygdsvdsdssdjdshjd</div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-        <div class="col-lg-10 col-md-10 col-sm-10 col-12 imagesizing">
-          <div class="">
-            Soumyadeep Paul   25-05-2020 19:20
-          </div>
-          <div class="flex-image-container"><img src="assets/2.jpg" class="contain imageheightwidth" alt=""/></div>
-          <div>Like Comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 Likes and 26 Comments</div>
-          <div class="flex-container backgroundcolor">................</div>
-          <div class="flex-container backgroundcolor">asudygdsvdsdssdjdshjd</div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-        <div class="col-lg-10 col-md-10 col-sm-10 col-12 imagesizing">
-          <div class="">
-            Soumyadeep Paul   25-05-2020 19:20
-          </div>
-          <div class="flex-image-container"><img src="assets/3.PNG" class="contain imageheightwidth" alt=""/></div>
-          <div>Like Comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 Likes and 26 Comments</div>
-          <div class="flex-container backgroundcolor">................</div>
-          <div class="flex-container backgroundcolor">asudygdsvdsdssdjdshjd</div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-      </div>
-
-      <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-          <div class="col-lg-10 col-md-10 col-sm-10 col-12 imagesizing">
-            <div class="">
-              Soumyadeep Paul   25-05-2020 19:20
-            </div>
-            <div class="flex-image-container"><img src="assets/4.PNG" class="contain imageheightwidth" alt=""/></div>
-            <div>Like Comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 Likes and 26 Comments</div>
-            <div class="flex-container backgroundcolor">................</div>
-            <div class="flex-container backgroundcolor">asudygdsvdsdssdjdshjd</div>
-          </div>
-          <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-        </div>
+      
 
 
 
@@ -65,3 +29,37 @@
     <div class="col-lg-2 col-md-2 col-sm-1 col-12"></div>
   </div>
 </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="commentModalCenter" tabindex="-1" role="dialog" aria-labelledby="commentModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Comment here -->
+          <div class="row">
+            <div class="col-lg-11 col-md-11 col-sm-11 col-11 commentdivstyling">
+                <input type="text" class="inputstyling"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-1 btn">
+              <i class="fas fa-paper-plane sendbutton"></i>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
