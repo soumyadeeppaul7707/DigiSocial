@@ -131,3 +131,16 @@ input{
     border: 1px solid rgb(207, 207, 207);
     outline: none;
 }
+
+.addscrollbar{
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.entercommentstyling{
+    margin-bottom : 20px;
+}
+
+.topposition{
+    margin-top :18vh;
+}
