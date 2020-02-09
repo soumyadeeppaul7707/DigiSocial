@@ -29,6 +29,10 @@
     box-shadow: none;
 }
 
+.likebutton{
+    font-size: 5vh;
+}
+
 .likebutton:active{
     color: red;
 }
@@ -39,9 +43,6 @@
 
 .btn:focus{
     box-shadow: none;
-}
-
-.commentdivstyling{
 }
 
 .inputstyling{
@@ -74,5 +75,59 @@
 }
 
 .textstyling{
-    color : rgb(170, 170, 170);
+    color : rgb(145, 145, 145);
+}
+
+.display-name-flex{
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: nowrap;
+    margin-left: 1vw;
+}
+
+.commentstylingright{
+    display:flex;
+    margin-top:5px;
+    margin-bottom:5px;
+    flex-direction: row; 
+    /* flex-wrap: nowrap; */
+    justify-content: flex-end;
+    width : 100%;
+}
+
+.commentstylingleft{
+    display:flex;
+    margin-top:5px;
+    margin-bottom:5px;
+    flex-direction: row; 
+    /* flex-wrap: nowrap; */
+    justify-content: flex-start;
+    width : 100%;
+}
+
+.commentdivstyling{
+    width: 100%;
+}
+
+.commentstyle{
+    word-wrap: break-word;
+    max-width:100%;
+    border-radius : 7px;
+}
+
+.commentsheader{
+    color : rgb(197, 197, 197);
+}
+
+::placeholder {
+    font-family : Calibri;
+    text-align: center;
+    font-size: 150%;
+    opacity: 0.3;
+}
+
+input{
+    border-radius: 10px;
+    border: 1px solid rgb(207, 207, 207);
+    outline: none;
 }
