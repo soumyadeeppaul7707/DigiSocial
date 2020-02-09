@@ -1,3 +1,7 @@
+.menubarcomponentfixedposition{
+    top:9vh;  
+}
+
 .menustyling{
     text-align: center;
     font-size: 150%;
@@ -8,9 +12,4 @@
 
 .bottomborder{
     border-bottom:1px solid  #203864 ;
-}
-
-.menubarfixedposition{
-    top:9vh;
-    
 }

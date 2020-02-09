@@ -1,3 +1,7 @@
+.recentcomponentposition{
+    margin-top :18vh;
+}
+
 .imagesizing{
     width : 70vw;
 }
@@ -139,8 +143,4 @@ input{
 
 .entercommentstyling{
     margin-bottom : 20px;
-}
-
-.topposition{
-    margin-top :18vh;
 }
