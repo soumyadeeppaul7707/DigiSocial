@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PublicWallComponent } from './public-wall/public-wall.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: 'recents/public-wall', pathMatch: 'full'},
+  // {path: "", redirectTo: 'recents/public-wall', pathMatch: 'full'},
   {path: "recents", redirectTo: 'recents/public-wall', pathMatch: 'full'},
   {path: "recents/public-wall",component: PublicWallComponent}  
 ];

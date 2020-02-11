@@ -7,6 +7,7 @@ import { HeaderModule } from './modules/header/header.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { FooterModule } from './modules/footer/footer.module';
 import { RecentsModule } from './modules/body/recents/recents.module';
+import { FriendsModule } from './modules/body/friends/friends.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RecentsModule } from './modules/body/recents/recents.module';
     AuthenticationModule,
     HeaderModule,
     FooterModule,
-    RecentsModule
+    RecentsModule,
+    FriendsModule
   ],
   exports:[],
   providers: [],

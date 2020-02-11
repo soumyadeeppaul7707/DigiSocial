@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FriendsComponent } from './friends/friends.component';
-import { ChatComponent } from './chat/chat.component';
+import { FriendsRoutingModule } from './friends-routing.module';
 
 @NgModule({
-  declarations: [FriendsComponent, ChatComponent],
+  declarations: [FriendsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FriendsRoutingModule
+  ],
+  exports: [
+    FriendsComponent
   ]
 })
 export class FriendsModule { }

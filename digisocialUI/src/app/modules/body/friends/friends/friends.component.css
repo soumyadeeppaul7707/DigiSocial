@@ -1,0 +1,144 @@
+.cardfitintodiv{
+    max-width: 100%;
+}
+
+.imagefitintodiv{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.imageheightwidth{
+    height: 30vh;
+}
+
+.chatbutton{
+    color : darkblue;
+    border : 1px solid darkblue;
+    width: 100%;
+}
+
+.chatbutton:hover{
+    transition-delay: 0.15s;
+    color : white;
+    background-color:  darkblue;
+}
+
+.chatbutton:active{
+    box-shadow: none;
+    color : white;
+    background-color:  darkblue;
+}
+
+.viewprofilebutton{
+    color : darkgreen;
+    border : 1px solid darkgreen;
+    width : 100%;
+}
+
+.viewprofilebutton:hover{
+    transition-delay: 0.15s;
+    color : white;
+    background-color:  darkgreen;
+}
+
+.viewprofilebutton:active{
+    box-shadow: none;
+    color : white;
+    background-color: darkgreen;
+}
+
+.unfriendbutton{
+    color : red;
+    border : 1px solid red;
+    width : 100%;
+}
+
+.unfriendbutton:hover{
+    transition-delay: 0.15s;
+    color : white;
+    background-color: red;
+}
+
+.unfriendbutton:active{
+    box-shadow: none;
+    color : white;
+    background-color: red;
+}
+
+
+
+
+
+.inputstyling{
+    height : 100%;
+    width : 100%;
+}
+
+.chatstylingright{
+    display:flex;
+    margin-top:5px;
+    margin-bottom:5px;
+    flex-direction: row; 
+    /* flex-wrap: nowrap; */
+    justify-content: flex-end;
+    width : 100%;
+}
+
+.chatstylingleft{
+    display:flex;
+    margin-top:5px;
+    margin-bottom:5px;
+    flex-direction: row; 
+    /* flex-wrap: nowrap; */
+    justify-content: flex-start;
+    width : 100%;
+}
+
+.chatdivstyling{
+    width: 100%;
+}
+
+.chatstyle{
+    word-wrap: break-word;
+    max-width:100%;
+    border-radius : 7px;
+    display : flex;
+    flex-direction: column;
+}
+
+.chatOwner{
+    color : blue;
+    opacity : 0.6;
+}
+
+.chatContent{
+    opacity : 0.8;
+}
+
+.chatsheader{
+    color : rgb(197, 197, 197);
+}
+
+::placeholder {
+    font-family : Calibri;
+    text-align: center;
+    font-size: 150%;
+    opacity: 0.3;
+}
+
+input{
+    border-radius: 10px;
+    border: 1px solid rgb(207, 207, 207);
+    outline: none;
+}
+
+.addscrollbar{
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.enterchatstyling{
+    margin-bottom : 20px;
+}

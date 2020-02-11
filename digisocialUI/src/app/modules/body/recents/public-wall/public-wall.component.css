@@ -1,10 +1,10 @@
-.recentcomponentposition{
+/* .recentcomponentposition{
     margin-top :18vh;
-}
+} */
 
-.imagesizing{
+/* .imagesizing{
     width : 70vw;
-}
+} */
 
 .imageheightwidth{
     max-width: 100%;
@@ -12,15 +12,11 @@
 
 .flex-container-left{
     display: flex;
-    /* flex-direction: row; */
-    /* flex-wrap: nowrap; */
     justify-content: flex-start;
 }
 
 .flex-container-right{
     display: flex;
-    /* flex-direction: row; */
-    /* flex-wrap: nowrap; */
     justify-content: flex-end;
 }
 
@@ -117,6 +113,17 @@
     word-wrap: break-word;
     max-width:100%;
     border-radius : 7px;
+    display : flex;
+    flex-direction: column;
+}
+
+.commentOwner{
+    color : blue;
+    opacity : 0.6;
+}
+
+.commentContent{
+    opacity : 0.8;
 }
 
 .commentsheader{
