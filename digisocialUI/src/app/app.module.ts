@@ -8,6 +8,7 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 import { FooterModule } from './modules/footer/footer.module';
 import { RecentsModule } from './modules/body/recents/recents.module';
 import { FriendsModule } from './modules/body/friends/friends.module';
+import { ProfileModule } from './modules/body/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FriendsModule } from './modules/body/friends/friends.module';
     HeaderModule,
     FooterModule,
     RecentsModule,
-    FriendsModule
+    FriendsModule,
+    ProfileModule
   ],
   exports:[],
   providers: [],

@@ -85,17 +85,18 @@
     margin-left: 1vw;
 }
 
-.commentstylingright{
+.commentstyling{
     display:flex;
     margin-top:5px;
     margin-bottom:5px;
     flex-direction: row; 
     /* flex-wrap: nowrap; */
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
+    justify-content: flex-start;
     width : 100%;
 }
 
-.commentstylingleft{
+.commentstyling{
     display:flex;
     margin-top:5px;
     margin-bottom:5px;
@@ -103,6 +104,9 @@
     /* flex-wrap: nowrap; */
     justify-content: flex-start;
     width : 100%;
+    
+    /* border-top: 1px solid lightgrey; */
+    border-bottom: 1px solid #eeeeee;
 }
 
 .commentdivstyling{
