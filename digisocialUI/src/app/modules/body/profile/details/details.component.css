@@ -1,0 +1,22 @@
+.imageheightwidth{
+    max-width : 100%;
+}
+
+.choosefile{
+    
+}
+
+.flexforbuttons{
+    display : flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -ms-flex-item-align: auto;
+
+}
+
+.editbutton{
+    height:7vh;
+    width:10vw;
+    border: 1px solid red;
+    font-size: 2vh;
+}
