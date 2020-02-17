@@ -17,7 +17,7 @@ export class YourWallComponent implements OnInit {
     //console.log("this is calleddhgffgfgnfngfnmghg");
   }
 
-
+  postcaption:any = "This is a caption for a post.";
   postimage: any;
   file: File = null;
   readThis(inputValue: any): void {

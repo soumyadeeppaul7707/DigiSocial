@@ -8,6 +8,16 @@
    justify-content: center;
 }
 
+.flex-post-caption-container{
+    display : flex;
+   justify-content: start;
+}
+
+.captioninputstyling{
+    width : 250%;
+    /* word-wrap: break-word; */
+}
+
 .imagecontainer{
     max-width: 100%;
 }
