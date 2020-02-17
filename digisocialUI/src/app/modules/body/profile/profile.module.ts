@@ -5,13 +5,15 @@ import { YourWallComponent } from './your-wall/your-wall.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProfileComponent } from './profile.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [DetailsComponent, YourWallComponent, ProfileComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    BrowserModule
+    BrowserModule,
+    ImageCropperModule
   ],
   exports:[
     DetailsComponent,

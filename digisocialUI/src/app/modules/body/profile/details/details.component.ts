@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-details',
@@ -12,45 +12,51 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  // changeListener($event): void {
+  //   this.readThis($event.target);
+  // }
 
-  changeListener($event): void {
-    this.readThis($event.target);
-    // imagecropModal.setTimeout(() => {
+  // profileimage:any='assets/1.jpg';
+  // file: File = null;
 
-    // }, 3000);
+
+  
+
+  // public imageDestination: string;
+
+  // readThis(inputValue: any): void {
+  //   this.file = inputValue.files[0];
+  //   var myReader: FileReader = new FileReader();
+
+  //   myReader.onloadend = (e) => {
+  //     this.profileimage = myReader.result;
+  //   }
+  //   myReader.readAsDataURL(this.file);
+  // }
+
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
   }
 
-  image:any='assets/1.jpg';
-  file: File = null;
-
-  readThis(inputValue: any): void {
-    this.file = inputValue.files[0];
-    var myReader: FileReader = new FileReader();
-
-    myReader.onloadend = (e) => {
-      this.image = myReader.result;
-    }
-    myReader.readAsDataURL(this.file);
-
-    
-
-  }
-
+  
   upload() {
-
-    
-    // let jsonData = ({
-    //   "blobobject": this.image,
-    //   "name": this.file.name
-    // });
-
-    // console.log(jsonData);
-
-    // this.uiService.fileUpload(jsonData).subscribe(
-    //   data => {
-    //     console.log("Yayy ! done mannnn !!!!!!!!!!!!!");
-    //   }
-    // );
   }
 
 }
