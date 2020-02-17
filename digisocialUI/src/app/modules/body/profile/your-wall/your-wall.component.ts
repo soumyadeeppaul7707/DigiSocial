@@ -12,4 +12,28 @@ export class YourWallComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeListener($event: any): void {
+    this.readThis($event.target);
+    console.log("this is calleddhgffgfgnfngfnmghg");
+  }
+
+  
+  postimage: any;
+  file: File = null;
+  readThis(inputValue: any): void {
+    this.file = inputValue.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.postimage = myReader.result;
+      console.log(myReader.result);
+    }
+    myReader.readAsDataURL(this.file);
+  }
+
+
+  upload() {
+
+  }
+
 }

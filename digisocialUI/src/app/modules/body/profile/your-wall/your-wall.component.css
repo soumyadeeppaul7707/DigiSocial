@@ -1,0 +1,41 @@
+.postcontainer{
+   border-radius: 15px;
+   border:1px solid lightgrey;
+}
+
+.flex-post-image-container{
+   display : flex;
+   justify-content: center;
+}
+
+.imagecontainer{
+    max-width: 100%;
+}
+
+.imagestyling{
+    max-width : 100%;
+    max-height : 100%;
+    border-radius: 50%;
+}
+
+.display-name-flex{
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: nowrap;
+    margin-left: 1vw;
+}
+
+.flexforbuttons{
+    display : flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -ms-flex-item-align: auto;
+
+}
+
+.editbutton{
+    height:7vh;
+    width:10vw;
+    border: 1px solid red;
+    font-size: 2vh;
+}
