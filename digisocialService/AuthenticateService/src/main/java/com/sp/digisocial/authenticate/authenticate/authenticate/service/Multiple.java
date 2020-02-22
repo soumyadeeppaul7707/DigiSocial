@@ -1,13 +1,13 @@
-package com.sp.digisocial.authenticate.service;
+package com.sp.digisocial.authenticate.authenticate.authenticate.service;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sp.digisocial.authenticate.bean.AuthenticationStatus;
-import com.sp.digisocial.authenticate.bean.User;
-import com.sp.digisocial.authenticate.repo.UserRepository;
+import com.sp.digisocial.authenticate.authenticate.authenticate.bean.AuthenticationStatus;
+import com.sp.digisocial.authenticate.authenticate.authenticate.bean.User;
+import com.sp.digisocial.authenticate.authenticate.authenticate.repo.UserRepository;
 
 @Service
 public class Multiple {
@@ -52,7 +52,7 @@ public class Multiple {
 			authenticate.setAuthenticate(false);
 			authenticate.setMessage("User already exist. Kindly try with another email.");
 		} else {
-			User user2 = userRepository.findByUserpassword(user.getPassword());
+			User user2 = userRepository.findByPassword(user.getPassword());
 			if(user2!=null) {
 				authenticate.setAuthenticate(false);
 				authenticate.setMessage("Kindly retry with another password.");

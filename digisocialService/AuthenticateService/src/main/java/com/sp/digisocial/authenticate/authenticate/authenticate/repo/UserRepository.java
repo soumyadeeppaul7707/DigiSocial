@@ -1,9 +1,9 @@
-package com.sp.digisocial.authenticate.repo;
+package com.sp.digisocial.authenticate.authenticate.authenticate.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sp.digisocial.authenticate.bean.User;
+import com.sp.digisocial.authenticate.authenticate.authenticate.bean.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
@@ -12,6 +12,6 @@ public interface UserRepository extends JpaRepository<User, String>{
 
 	public User findByUsername(String username);
 	
-	public User findByUserpassword(String userpassword);
+	public User findByPassword(String password);
 
 }

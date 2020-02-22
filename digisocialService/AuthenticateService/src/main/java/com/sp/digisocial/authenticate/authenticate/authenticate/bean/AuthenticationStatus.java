@@ -1,4 +1,4 @@
-package com.sp.digisocial.authenticate.bean;
+package com.sp.digisocial.authenticate.authenticate.authenticate.bean;
 
 public class AuthenticationStatus {
 	

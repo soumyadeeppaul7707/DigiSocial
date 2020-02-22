@@ -1,4 +1,4 @@
-package com.sp.digisocial.authenticate.bean;
+package com.sp.digisocial.authenticate.authenticate.authenticate.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,16 +11,17 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "us_username")
-	private String username;
-	
 	
 	@Column(name = "us_id")
 	private int id;
 	
 	
+	@Id
+	@Column(name = "us_username")
+	private String username;
+	
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "us_password")
 	private String password;
 	

@@ -1,4 +1,4 @@
-package com.sp.digisocial.authenticate.rest;
+package com.sp.digisocial.authenticate.authenticate.authenticate.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sp.digisocial.authenticate.bean.AuthenticationStatus;
-import com.sp.digisocial.authenticate.bean.User;
-import com.sp.digisocial.authenticate.service.Multiple;
+import com.sp.digisocial.authenticate.authenticate.authenticate.bean.AuthenticationStatus;
+import com.sp.digisocial.authenticate.authenticate.authenticate.bean.User;
+import com.sp.digisocial.authenticate.authenticate.authenticate.service.Multiple;
 
 
 
