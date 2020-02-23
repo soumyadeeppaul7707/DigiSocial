@@ -9,6 +9,7 @@ import { FooterModule } from './modules/footer/footer.module';
 import { RecentsModule } from './modules/body/recents/recents.module';
 import { FriendsModule } from './modules/body/friends/friends.module';
 import { ProfileModule } from './modules/body/profile/profile.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileModule } from './modules/body/profile/profile.module';
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
+    HttpClientModule,
     HeaderModule,
     FooterModule,
     RecentsModule,
@@ -25,7 +27,9 @@ import { ProfileModule } from './modules/body/profile/profile.module';
     ProfileModule
   ],
   exports:[],
-  providers: [],
+  providers: [
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
