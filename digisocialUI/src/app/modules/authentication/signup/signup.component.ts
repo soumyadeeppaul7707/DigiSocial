@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
     firstname: [''],
     lastname: [''],
     username: [''],
-    emailid: [''],
+    email: [''],
     mobilenumber: [''],
     dateofbirth: [''],
     password: [''],
@@ -56,29 +56,31 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.authenticationService.loginUser(this.signupForm.value).subscribe(
-    //   data => {
-    //     console.log(data);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
-
-
 
     this.signupForm.removeControl('confirmpassword');
 
-    let birthdate = this.model.day + '-' + this.model.month + '-' + this.model.year + ' 00\:00\:00';
+    let birthdate = this.model.year + '-' + this.model.month + '-' + this.model.day + ' 00\:00\:00';
     this.signupForm.controls['dateofbirth'].setValue(birthdate);
     //console.log(this.signupForm.value.dateofbirth);
     //console.log(this.model.day + '-' + this.model.month + '-' + this.model.year);
 
-    this.signupForm.addControl('joiningdate', this.fb.control(''));
-    this.currentdatetime = this.datePipe.transform(new Date(), 'dd-MM-yyyy HH:mm:ss');
-    this.signupForm.value.joiningdate = this.currentdatetime;
+    this.signupForm.addControl('joiningdatetime', this.fb.control(''));
+    this.currentdatetime = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
+    this.signupForm.value.joiningdatetime = this.currentdatetime;
 
     console.log(this.signupForm.value);
+
+    this.authenticationService.signupUser(this.signupForm.value).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+
+
 
   }
 

@@ -1,11 +1,15 @@
 package com.sp.digisocial.authenticate.bean;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="user")
@@ -33,12 +37,14 @@ public class User {
 	private int mobilenumber;
 	
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-M-d HH:mm:ss", timezone = "Asia/Kolkata")
 	@Column(name = "us_joiningdatetime")
-	private String joiningdatetime;
+	private Date joiningdatetime;
 	
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-M-d HH:mm:ss", timezone = "Asia/Kolkata")
 	@Column(name = "us_dateofbirth")
-	private String dateofbirth;
+	private Date dateofbirth;
 	
 
 	@Column(name = "us_firstname")
@@ -103,26 +109,6 @@ public class User {
 	}
 
 
-	public String getJoiningdatetime() {
-		return joiningdatetime;
-	}
-
-
-	public void setJoiningdatetime(String joiningdatetime) {
-		this.joiningdatetime = joiningdatetime;
-	}
-
-
-	public String getDateofbirth() {
-		return dateofbirth;
-	}
-
-
-	public void setDateofbirth(String dateofbirth) {
-		this.dateofbirth = dateofbirth;
-	}
-
-
 	public String getFirstname() {
 		return firstname;
 	}
@@ -150,6 +136,26 @@ public class User {
 
 	public void setMiddlename(String middlename) {
 		this.middlename = middlename;
+	}
+
+
+	public Date getJoiningdatetime() {
+		return joiningdatetime;
+	}
+
+
+	public void setJoiningdatetime(Date joiningdatetime) {
+		this.joiningdatetime = joiningdatetime;
+	}
+
+
+	public Date getDateofbirth() {
+		return dateofbirth;
+	}
+
+
+	public void setDateofbirth(Date dateofbirth) {
+		this.dateofbirth = dateofbirth;
 	}
 
 

@@ -1,5 +1,9 @@
 package com.sp.digisocial.authenticate.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +55,14 @@ public class Multiple {
 			authenticate.setAuthenticate(false);
 			authenticate.setMessage("User already exist. Kindly try with another username.");
 		} else {
-
+			//System.out.println("joining date is -- >  "+user.getJoiningdatetime());
+			//System.out.println("dob  date is -- >  "+user.getDateofbirth());
+			//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
+			//Date date = user.getJoiningdatetime();
+			//System.out.println("joining date is -- >  "+dateFormat.format(date));
+			System.out.println("Current sdqte is -----------------> "+ new Date());
+			System.out.println("Joining date is -------------------------->"+user.getJoiningdatetime());
+			System.out.println("date of birth is===============================>"+user.getDateofbirth());
 			userRepository.save(user);
 			authenticate.setAuthenticate(true);
 			authenticate.setMessage("Yayy! You Successfully Signed Up...");
