@@ -1,7 +1,6 @@
 package com.sp.digisocial.authenticate.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import javax.transaction.Transactional;
@@ -14,7 +13,7 @@ import com.sp.digisocial.authenticate.bean.User;
 import com.sp.digisocial.authenticate.repo.UserRepository;
 
 @Service
-public class Multiple {
+public class AuthenticateServiceImpl implements AuthenticateService{
 
 	private UserRepository userRepository;
 
