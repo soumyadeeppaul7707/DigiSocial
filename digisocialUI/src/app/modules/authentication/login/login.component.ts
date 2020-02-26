@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -26,6 +28,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.loginUser(this.loginForm.value).subscribe(
       data => {
         console.log(data);
+        if (data.authenticate) {
+          this.authService.login();
+          this.router.navigate(['/profile']);
+        }
       },
       error => {
         console.log(error);

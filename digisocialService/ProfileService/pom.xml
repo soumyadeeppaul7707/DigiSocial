@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sp.digisocial</groupId>
+	<artifactId>profile</artifactId>
+	<!-- <version>0.0.1-SNAPSHOT</version> -->
+	<name>ProfileService</name>
+	<description>profile image user details post comments</description>
+
+	<parent>
+		<groupId>com.sp</groupId>
+		<artifactId>digisocial</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../digisocial/pom.xml</relativePath>
+	</parent>
+
+</project>

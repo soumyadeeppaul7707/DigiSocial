@@ -24,9 +24,6 @@ public class AuthenticateServiceImpl implements AuthenticateService{
 
 	@Transactional
 	public AuthenticationStatus loginUser(User loginUser) {
-		// System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		// System.out.println(loginUser);
-		// System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		AuthenticationStatus authenticate = new AuthenticationStatus();
 		User user = userRepository.findByUsername(loginUser.getUsername());
 		if (user != null) {
@@ -54,14 +51,6 @@ public class AuthenticateServiceImpl implements AuthenticateService{
 			authenticate.setAuthenticate(false);
 			authenticate.setMessage("User already exist. Kindly try with another username.");
 		} else {
-			//System.out.println("joining date is -- >  "+user.getJoiningdatetime());
-			//System.out.println("dob  date is -- >  "+user.getDateofbirth());
-			//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
-			//Date date = user.getJoiningdatetime();
-			//System.out.println("joining date is -- >  "+dateFormat.format(date));
-			System.out.println("Current sdqte is -----------------> "+ new Date());
-			System.out.println("Joining date is -------------------------->"+user.getJoiningdatetime());
-			System.out.println("date of birth is===============================>"+user.getDateofbirth());
 			userRepository.save(user);
 			authenticate.setAuthenticate(true);
 			authenticate.setMessage("Yayy! You Successfully Signed Up...");
