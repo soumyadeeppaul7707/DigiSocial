@@ -12,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import com.sp.digisocial.authenticate.bean.User;
 
 @Entity
 @Table(name = "post")
@@ -24,7 +29,7 @@ public class Post {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "po_byusername")
-	private String username;
+	private User user;
 
 	@Column(name = "po_caption")
 	private String caption;
@@ -32,11 +37,18 @@ public class Post {
 	@Column(name = "po_imagefilename")
 	private String imagefilename;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-M-d HH:mm:ss", timezone = "Asia/Kolkata")
 	@Column(name = "po_datetime")
 	private Date uploadtime;
 
 	@Column(name = "po_ispost")
 	private boolean ispostOrProfilepicture;
+	
+	@Transient
+	private String filename;
+	
+	@Transient
+	private String blobobject;
 
 	public int getId() {
 		return id;
@@ -46,13 +58,6 @@ public class Post {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getCaption() {
 		return caption;
@@ -86,10 +91,37 @@ public class Post {
 		this.ispostOrProfilepicture = ispostOrProfilepicture;
 	}
 
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public String getBlobobject() {
+		return blobobject;
+	}
+
+	public void setBlobobject(String blobobject) {
+		this.blobobject = blobobject;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", username=" + username + ", caption=" + caption + ", imagefilename=" + imagefilename
-				+ ", uploadtime=" + uploadtime + ", ispostOrProfilepicture=" + ispostOrProfilepicture + "]";
+		return "Post [id=" + id + ", user=" + user + ", caption=" + caption + ", imagefilename=" + imagefilename
+				+ ", uploadtime=" + uploadtime + ", ispostOrProfilepicture=" + ispostOrProfilepicture + ", filename="
+				+ filename + ", blobobject=" + blobobject + "]";
 	}
+
+	
 
 }
