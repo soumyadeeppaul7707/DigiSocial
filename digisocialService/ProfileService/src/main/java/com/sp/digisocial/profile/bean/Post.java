@@ -2,21 +2,15 @@ package com.sp.digisocial.profile.bean;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import com.sp.digisocial.authenticate.bean.User;
 
 @Entity
 @Table(name = "post")
@@ -27,9 +21,9 @@ public class Post {
 	@Column(name = "po_id")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	@JoinColumn(name = "po_byusername")
-	private User user;
+
+	@Column(name = "po_byusername")
+	private String username;
 
 	@Column(name = "po_caption")
 	private String caption;
@@ -107,21 +101,21 @@ public class Post {
 		this.blobobject = blobobject;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", user=" + user + ", caption=" + caption + ", imagefilename=" + imagefilename
+		return "Post [id=" + id + ", username=" + username + ", caption=" + caption + ", imagefilename=" + imagefilename
 				+ ", uploadtime=" + uploadtime + ", ispostOrProfilepicture=" + ispostOrProfilepicture + ", filename="
 				+ filename + ", blobobject=" + blobobject + "]";
 	}
 
-	
+
 
 }

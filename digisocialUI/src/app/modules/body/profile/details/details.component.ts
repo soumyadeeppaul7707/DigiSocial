@@ -1,40 +1,23 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { AuthService } from 'src/app/auth.service';
+import { DatePipe } from '@angular/common';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
+  providers: [DatePipe]
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService,
+    private datePipe: DatePipe,
+    private profileService: ProfileService) { }
 
   ngOnInit() {
   }
-  
-  // changeListener($event): void {
-  //   this.readThis($event.target);
-  // }
-
-  // profileimage:any='assets/1.jpg';
-  // file: File = null;
-
-
-  
-
-  // public imageDestination: string;
-
-  // readThis(inputValue: any): void {
-  //   this.file = inputValue.files[0];
-  //   var myReader: FileReader = new FileReader();
-
-  //   myReader.onloadend = (e) => {
-  //     this.profileimage = myReader.result;
-  //   }
-  //   myReader.readAsDataURL(this.file);
-  // }
-
 
   imageChangedEvent: any = '';
   croppedImage: any = '';
@@ -55,8 +38,28 @@ export class DetailsComponent implements OnInit {
     // show message
   }
 
-  
+
   upload() {
+    let currentdatetime = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
+    let profilepictureData = {
+      "username": this.authService.getUsername(),
+      "imagefilename": "profilepicture",
+      "uploadtime": currentdatetime,
+      "ispostOrProfilepicture": 0,
+      "blobobject": this.croppedImage
+    };
+
+    this.profileService.profilePictureUpload(profilepictureData).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    console.log("upload clicked.. !!");
+    console.log(profilepictureData);
   }
 
 }

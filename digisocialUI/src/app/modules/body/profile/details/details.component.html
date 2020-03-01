@@ -79,13 +79,12 @@
         <div class="flexforbuttons">
           <!-- <input type="file" accept="image/*" (change)="changeListener($event)" class="choosefile"> -->
           <div>
-            <label class="btn editbutton">Upload</label>
-            <input type="button" (click)="upload()" style="display: none;">
+            <label class="btn editbutton" (click)="upload()">Upload</label>
+            <input type="button" style="display: none;">
           </div>
           <div>
             <label for="files" class="btn editbutton">Choose</label>
-            <input id="files" accept="image/*" (change)="fileChangeEvent($event)"
-              style="display: none;" type="file">
+            <input id="files" accept="image/*" (change)="fileChangeEvent($event)" style="display: none;" type="file">
           </div>
         </div>
       </div>

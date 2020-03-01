@@ -6,6 +6,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProfileComponent } from './profile.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ProfileService } from './profile.service';
 
 @NgModule({
   declarations: [DetailsComponent, YourWallComponent, ProfileComponent],
@@ -19,6 +20,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     DetailsComponent,
     YourWallComponent
   ],
-  bootstrap: [ProfileComponent]
+  bootstrap: [ProfileComponent],
+  providers: [ ProfileService ]
 })
 export class ProfileModule { }

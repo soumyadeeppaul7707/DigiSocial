@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data.authenticate) {
           this.authService.login();
+          this.authService.setUsername(data.user.username);
           this.router.navigate(['/profile']);
         }
       },

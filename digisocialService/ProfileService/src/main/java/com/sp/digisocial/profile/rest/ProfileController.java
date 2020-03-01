@@ -12,7 +12,7 @@ import com.sp.digisocial.profile.service.ProfileService;
 
 @RestController
 @RequestMapping("/profile")
-@CrossOrigin//(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProfileController {
 
 	@Autowired

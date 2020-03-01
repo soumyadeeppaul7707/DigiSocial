@@ -21,6 +21,10 @@ public class ProfileService {
 
 	@Transactional
 	public void fileUploadProcess(Post post) throws Throwable {
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(post);
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		
 		String fileLocation = null;
 		String fileName = null;
 
@@ -29,7 +33,7 @@ public class ProfileService {
 		try {
 			Random rand = new Random();
 			double rand_dub = rand.nextDouble();
-			fileName = post.getFilename() + rand_dub + ".txt";
+			fileName = post.getImagefilename() + rand_dub + ".txt";
 			fileLocation = "E:\\newstart\\grand project\\zipfs\\" + fileName;
 			File myObj = new File(fileLocation);
 			if (myObj.createNewFile()) {
