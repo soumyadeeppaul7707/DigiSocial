@@ -24,13 +24,16 @@ public class ProfileService {
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println(post);
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		
+
 		String fileLocation = null;
 		String fileName = null;
 
 		// save blob object i.e.- image to a text file
 		// E:\newstart\grand project\zipfs\
 		try {
+			//File file = new File("E:\\newstart\\grand project\\zipfs");
+			//file.mkdirs();
+			new File("E:\\newstart\\grand project\\zipfs").mkdirs() ;
 			Random rand = new Random();
 			double rand_dub = rand.nextDouble();
 			fileName = post.getImagefilename() + rand_dub + ".txt";
