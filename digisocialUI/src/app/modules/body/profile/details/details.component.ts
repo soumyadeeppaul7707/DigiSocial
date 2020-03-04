@@ -19,17 +19,7 @@ export class DetailsComponent implements OnInit {
   image: any = "assets/11.jpg";
 
   ngOnInit() {
-    let profilepictureData = {
-      "username": this.authService.getUsername()
-    };
-    this.profileService.profilePictureShow(profilepictureData).subscribe(
-      data => {
-        this.image = data.blobobject;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.showProfilePicture();
   }
 
   imageChangedEvent: any = '';
@@ -65,7 +55,7 @@ export class DetailsComponent implements OnInit {
     this.profileService.profilePictureUpload(profilepictureData).subscribe(
       data => {
         console.log(data);
-        this.ngOnInit();
+        this.showProfilePicture();
       },
       error => {
         console.log(error);
@@ -76,4 +66,18 @@ export class DetailsComponent implements OnInit {
     console.log(profilepictureData);
   }
 
+
+  showProfilePicture() {
+    let profilepictureData = {
+      "username": this.authService.getUsername()
+    };
+    this.profileService.profilePictureShow(profilepictureData).subscribe(
+      data => {
+        this.image = data.blobobject;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }
