@@ -18,7 +18,7 @@
               <!-- <div *ngIf="image">
                 <img src="{{image}}" alt="">
               </div> -->
-              <img src="assets/11.jpg" class="contain imageheightwidth">
+              <img src={{image}} class="contain imageheightwidth">
               <button data-toggle="modal" data-target="#imagecropModal" class="btn btn-primary">Change your profile
                 picture</button>
 
@@ -78,7 +78,7 @@
         </div>
         <div class="flexforbuttons">
           <!-- <input type="file" accept="image/*" (change)="changeListener($event)" class="choosefile"> -->
-          <div>
+          <div data-dismiss="modal">
             <label class="btn editbutton" (click)="upload()">Upload</label>
             <input type="button" style="display: none;">
           </div>

@@ -16,7 +16,20 @@ export class DetailsComponent implements OnInit {
     private datePipe: DatePipe,
     private profileService: ProfileService) { }
 
+  image: any = "assets/11.jpg";
+
   ngOnInit() {
+    let profilepictureData = {
+      "username": this.authService.getUsername()
+    };
+    this.profileService.profilePictureShow(profilepictureData).subscribe(
+      data => {
+        this.image = data.blobobject;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   imageChangedEvent: any = '';
@@ -52,6 +65,7 @@ export class DetailsComponent implements OnInit {
     this.profileService.profilePictureUpload(profilepictureData).subscribe(
       data => {
         console.log(data);
+        this.ngOnInit();
       },
       error => {
         console.log(error);

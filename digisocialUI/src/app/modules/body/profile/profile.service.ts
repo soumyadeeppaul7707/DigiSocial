@@ -15,10 +15,15 @@ const httpOptions = {
 export class ProfileService {
 
   profilepictureuploadurl = "http://localhost:7000/digisocial/profile/profilepictureupload";
+  profilepictureshowurl = "http://localhost:7000/digisocial/profile/showprofilepicture";
 
   constructor(private http: HttpClient) { }
 
   profilePictureUpload(json): Observable<any> {
     return this.http.post<any>(this.profilepictureuploadurl, json, httpOptions);
+  }
+
+  profilePictureShow(json): Observable<any> {
+    return this.http.post<any>(this.profilepictureshowurl, json, httpOptions);
   }
 }

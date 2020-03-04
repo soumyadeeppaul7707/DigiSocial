@@ -1,5 +1,7 @@
 package com.sp.digisocial.profile.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,5 +23,10 @@ public class ProfileController {
 	@PostMapping("/profilepictureupload")
 	public void fileUploadProcess(@RequestBody Post post) throws Throwable{
 		profileService.fileUploadProcess(post);
+	}
+	
+	@PostMapping("/showprofilepicture")
+	public Post fileFetchProcess(@RequestBody Post post) throws Throwable{
+		return profileService.fileFetchProcess(post);
 	}
 }

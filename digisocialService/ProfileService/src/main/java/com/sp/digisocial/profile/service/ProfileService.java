@@ -1,8 +1,12 @@
 package com.sp.digisocial.profile.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 import javax.transaction.Transactional;
 
@@ -31,9 +35,9 @@ public class ProfileService {
 		// save blob object i.e.- image to a text file
 		// E:\newstart\grand project\zipfs\
 		try {
-			//File file = new File("E:\\newstart\\grand project\\zipfs");
-			//file.mkdirs();
-			new File("E:\\newstart\\grand project\\zipfs").mkdirs() ;
+			// File file = new File("E:\\newstart\\grand project\\zipfs");
+			// file.mkdirs();
+			new File("E:\\newstart\\grand project\\zipfs").mkdirs();
 			Random rand = new Random();
 			double rand_dub = rand.nextDouble();
 			fileName = post.getImagefilename() + rand_dub + ".txt";
@@ -55,4 +59,28 @@ public class ProfileService {
 		postRepository.save(post);
 	}
 
+	@Transactional
+	public Post fileFetchProcess(Post post) throws Throwable {
+		List<Post> posts= new ArrayList<Post>();
+		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), false);
+		try {
+
+			ZipFSPUser fetchFileFromFilesystem = new ZipFSPUser();
+			for(Post p : posts) {
+				File myObj = fetchFileFromFilesystem.fetchFileFromFileSystem(p.getImagefilename());
+				Scanner myReader = new Scanner(myObj);
+				while (myReader.hasNextLine()) {
+					p.setBlobobject(myReader.nextLine());
+				}
+				myReader.close();
+				myObj.delete();
+			}
+			
+
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return posts.get(0);
+	}
 }

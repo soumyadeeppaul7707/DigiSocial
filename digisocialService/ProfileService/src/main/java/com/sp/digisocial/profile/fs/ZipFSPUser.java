@@ -1,5 +1,6 @@
 package com.sp.digisocial.profile.fs;
 
+import java.io.File;
 import java.net.URI;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
@@ -23,4 +24,19 @@ public class ZipFSPUser {
 			Files.copy(externalTxtFile, pathInZipfile, StandardCopyOption.REPLACE_EXISTING);
 		}
 	}
+
+	public File fetchFileFromFileSystem(String filename) throws Throwable {
+
+		Path zipFile = Paths.get("E:/newstart/grand project/zipfs/digisocialzipfs.zip");
+		//String fileName = filename;
+		Path outputFile = Paths.get("E:/newstart/grand project/zipfs/" + filename);
+
+		try (FileSystem fileSystem = FileSystems.newFileSystem(zipFile, null)) {
+			Path fileToExtract = fileSystem.getPath(filename);
+			Files.copy(fileToExtract, outputFile);
+		}
+		return new File(outputFile.toUri());
+
+	}
+
 }

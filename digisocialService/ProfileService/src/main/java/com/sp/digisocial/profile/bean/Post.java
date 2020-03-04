@@ -36,7 +36,7 @@ public class Post {
 	private Date uploadtime;
 
 	@Column(name = "po_ispost")
-	private boolean ispostOrProfilepicture;
+	private boolean ispost;
 	
 	@Transient
 	private String filename;
@@ -77,12 +77,12 @@ public class Post {
 		this.uploadtime = uploadtime;
 	}
 
-	public boolean isIspostOrProfilepicture() {
-		return ispostOrProfilepicture;
+	public boolean isIspost() {
+		return ispost;
 	}
 
-	public void setIspostOrProfilepicture(boolean ispostOrProfilepicture) {
-		this.ispostOrProfilepicture = ispostOrProfilepicture;
+	public void setIspost(boolean ispost) {
+		this.ispost = ispost;
 	}
 
 	public String getFilename() {
@@ -112,9 +112,10 @@ public class Post {
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", username=" + username + ", caption=" + caption + ", imagefilename=" + imagefilename
-				+ ", uploadtime=" + uploadtime + ", ispostOrProfilepicture=" + ispostOrProfilepicture + ", filename="
-				+ filename + ", blobobject=" + blobobject + "]";
+				+ ", uploadtime=" + uploadtime + ", ispost=" + ispost + ", filename=" + filename + ", blobobject="
+				+ blobobject + "]";
 	}
+
 
 
 
