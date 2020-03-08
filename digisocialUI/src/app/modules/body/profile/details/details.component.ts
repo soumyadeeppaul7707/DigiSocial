@@ -43,12 +43,13 @@ export class DetailsComponent implements OnInit {
 
 
   upload() {
+    console.log("UPLOAD CLICKED !!!!");
     let currentdatetime = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
     let profilepictureData = {
       "username": this.authService.getUsername(),
       "imagefilename": "profilepicture",
       "uploadtime": currentdatetime,
-      "ispostOrProfilepicture": 0,
+      "ispost": 0,
       "blobobject": this.croppedImage
     };
 
@@ -62,8 +63,8 @@ export class DetailsComponent implements OnInit {
       }
     );
 
-    console.log("upload clicked.. !!");
-    console.log(profilepictureData);
+    //console.log("upload clicked.. !!");
+    //console.log(profilepictureData);
   }
 
 

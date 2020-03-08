@@ -21,7 +21,6 @@ public class Post {
 	@Column(name = "po_id")
 	private int id;
 
-
 	@Column(name = "po_byusername")
 	private String username;
 
@@ -31,16 +30,13 @@ public class Post {
 	@Column(name = "po_imagefilename")
 	private String imagefilename;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-M-d HH:mm:ss", timezone = "Asia/Kolkata")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d HH:mm:ss", timezone = "Asia/Kolkata")
 	@Column(name = "po_datetime")
 	private Date uploadtime;
 
 	@Column(name = "po_ispost")
 	private boolean ispost;
-	
-	@Transient
-	private String filename;
-	
+
 	@Transient
 	private String blobobject;
 
@@ -51,7 +47,6 @@ public class Post {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getCaption() {
 		return caption;
@@ -85,14 +80,6 @@ public class Post {
 		this.ispost = ispost;
 	}
 
-	public String getFilename() {
-		return filename;
-	}
-
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
-
 	public String getBlobobject() {
 		return blobobject;
 	}
@@ -112,11 +99,7 @@ public class Post {
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", username=" + username + ", caption=" + caption + ", imagefilename=" + imagefilename
-				+ ", uploadtime=" + uploadtime + ", ispost=" + ispost + ", filename=" + filename + ", blobobject="
-				+ blobobject + "]";
+				+ ", uploadtime=" + uploadtime + ", ispost=" + ispost + ", blobobject=" + blobobject + "]";
 	}
-
-
-
 
 }

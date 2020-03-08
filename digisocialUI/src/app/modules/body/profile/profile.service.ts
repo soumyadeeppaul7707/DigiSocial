@@ -16,6 +16,8 @@ export class ProfileService {
 
   profilepictureuploadurl = "http://localhost:7000/digisocial/profile/profilepictureupload";
   profilepictureshowurl = "http://localhost:7000/digisocial/profile/showprofilepicture";
+  postuploadurl = "http://localhost:7000/digisocial/profile/postupload";
+  postshowurl = "http://localhost:7000/digisocial/profile/showpost";
 
   constructor(private http: HttpClient) { }
 
@@ -25,5 +27,12 @@ export class ProfileService {
 
   profilePictureShow(json): Observable<any> {
     return this.http.post<any>(this.profilepictureshowurl, json, httpOptions);
+  }
+  postUpload(json): Observable<any> {
+    return this.http.post<any>(this.postuploadurl, json, httpOptions);
+  }
+
+  postShow(json): Observable<any> {
+    return this.http.post<any>(this.postshowurl, json, httpOptions);
   }
 }

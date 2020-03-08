@@ -12,7 +12,6 @@ public interface PostRepository extends JpaRepository<Post, String> {
 
 	public Post findById(int id);
 
-	public List<Post> findByUsernameAndIspostOrderByUploadtimeDesc(String username,
-			boolean ispost);
+	public List<Post> findByUsernameAndIspostOrderByUploadtimeDesc(String username, boolean ispost);
 
 }

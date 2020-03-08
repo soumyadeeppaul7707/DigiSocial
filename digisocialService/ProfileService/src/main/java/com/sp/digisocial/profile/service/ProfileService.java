@@ -24,11 +24,7 @@ public class ProfileService {
 	public PostRepository postRepository;
 
 	@Transactional
-	public void fileUploadProcess(Post post) throws Throwable {
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(post);
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
-
+	public void fileUploadProcessProfilePicture(Post post) throws Throwable {
 		String fileLocation = null;
 		String fileName = null;
 
@@ -60,7 +56,7 @@ public class ProfileService {
 	}
 
 	@Transactional
-	public Post fileFetchProcess(Post post) throws Throwable {
+	public Post fileFetchProcessProfilePicture(Post post) throws Throwable {
 		List<Post> posts= new ArrayList<Post>();
 		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), false);
 		try {
@@ -82,5 +78,60 @@ public class ProfileService {
 			e.printStackTrace();
 		}
 		return posts.get(0);
+	}
+	
+	
+	@Transactional
+	public void fileUploadProcessPost(Post post) throws Throwable {
+		String fileLocation = null;
+		String fileName = null;
+
+		try {
+			new File("E:\\newstart\\grand project\\zipfs").mkdirs();
+			Random rand = new Random();
+			double rand_dub = rand.nextDouble();
+			fileName = post.getImagefilename() + rand_dub + ".txt";
+			fileLocation = "E:\\newstart\\grand project\\zipfs\\" + fileName;
+			File myObj = new File(fileLocation);
+			if (myObj.createNewFile()) {
+				FileWriter fw = new FileWriter(fileLocation);
+				fw.write(post.getBlobobject());
+				fw.close();
+				post.setImagefilename(fileName);
+			}
+			ZipFSPUser addFileToFilesystem = new ZipFSPUser();
+			addFileToFilesystem.addFileToZipFileSystem(fileName);
+			myObj.delete();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		postRepository.save(post);
+	}
+	
+	
+	@Transactional
+	public List<Post> fileFetchProcessPost(Post post) throws Throwable {
+		List<Post> posts= new ArrayList<Post>();
+		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), true);
+		try {
+
+			ZipFSPUser fetchFileFromFilesystem = new ZipFSPUser();
+			for(Post p : posts) {
+				File myObj = fetchFileFromFilesystem.fetchFileFromFileSystem(p.getImagefilename());
+				Scanner myReader = new Scanner(myObj);
+				while (myReader.hasNextLine()) {
+					p.setBlobobject(myReader.nextLine());
+				}
+				myReader.close();
+				myObj.delete();
+			}
+			
+
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return posts;
 	}
 }

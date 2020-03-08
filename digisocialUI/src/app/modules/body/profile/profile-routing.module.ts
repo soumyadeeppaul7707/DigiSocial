@@ -5,8 +5,8 @@ import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
   {path: "profile/profile",component: ProfileComponent},
-  {path: "profile", redirectTo: 'profile/profile', pathMatch: 'full'},
-  {path: "", redirectTo: 'profile/profile', pathMatch: 'full'}
+  {path: "profile", redirectTo: 'profile/profile', pathMatch: 'full'}//,
+  //{path: "", redirectTo: 'profile/profile', pathMatch: 'full'}
    
 ];
 

@@ -12,15 +12,15 @@
             <div>==== Post Here ====</div>
           </div>
           <div class="flex-post-caption-container">
-            <div><input value="{{postcaption}}" class="captioninputstyling"/></div>
+            <div><input value="{{postcaption}}" class="captioninputstyling" /></div>
           </div>
           <div class="flex-post-image-container">
             <div><img src="{{postimage}}" alt="" class="contain imagecontainer" /></div>
           </div>
           <div class="flexforbuttons">
             <div>
-              <label class="btn editbutton">Upload</label>
-              <input type="button" (click)="upload()" style="display: none;">
+              <label class="btn editbutton" (click)="upload()">Upload</label>
+              <input type="button" style="display: none;">
             </div>
             <div>
               <label for="postfiles" class="btn editbutton">Choose</label>
@@ -34,36 +34,19 @@
 
 
       <!-- your wall -->
-      <div class="row">
+      <div class="row" *ngFor="let post of posts">
         <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-12">
           <div class="row">
             <div><img src="assets/5.jpg" class="imagestyling" alt="" /></div>
             <div class="display-name-flex">
-              <div>Soumyadeep Paul</div>
-              <div>25-05-2020 19:20</div>
-              <div>This is a sample caption !! WAoo nicee!!</div>
+              <div>{{post.username}}</div>
+              <div>{{post.uploadtime}}</div>
+              <div>{{post.caption}}</div>
             </div>
           </div>
           <div class="flex-post-image-container">
-            <div><img src="assets/1.jpg" alt="" class="contain imagecontainer"></div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-12"></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-12"></div>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-12">
-          <div class="row">
-            <div><img src="assets/5.jpg" class="imagestyling" alt="" /></div>
-            <div class="display-name-flex">
-              <div>Soumyadeep Paul</div>
-              <div>25-05-2020 19:20</div>
-              <div>This is a sample caption !! WAoo nicee!!</div>
-            </div>
-          </div>
-          <div class="flex-post-image-container">
-            <div><img src="assets/1.jpg" alt="" class="contain imagecontainer"></div>
+            <div><img src="{{post.blobobject}}" alt="" class="contain imagecontainer"></div>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-12"></div>
