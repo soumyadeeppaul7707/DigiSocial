@@ -12,14 +12,14 @@
             <div>==== Post Here ====</div>
           </div>
           <div class="flex-post-caption-container">
-            <div><input value="{{postcaption}}" class="captioninputstyling" /></div>
+            <div><input #postcaption class="captioninputstyling" /></div>
           </div>
           <div class="flex-post-image-container">
             <div><img src="{{postimage}}" alt="" class="contain imagecontainer" /></div>
           </div>
           <div class="flexforbuttons">
             <div>
-              <label class="btn editbutton" (click)="upload()">Upload</label>
+              <label class="btn editbutton" (click)="upload(postcaption.value)">Upload</label>
               <input type="button" style="display: none;">
             </div>
             <div>

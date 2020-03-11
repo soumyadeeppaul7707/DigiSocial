@@ -33,11 +33,11 @@ public class ProfileService {
 		try {
 			// File file = new File("E:\\newstart\\grand project\\zipfs");
 			// file.mkdirs();
-			new File("E:\\newstart\\grand project\\zipfs").mkdirs();
+			new File("/home/soumyadeep/Desktop/grand_project/zipfs/").mkdirs();
 			Random rand = new Random();
 			double rand_dub = rand.nextDouble();
 			fileName = post.getImagefilename() + rand_dub + ".txt";
-			fileLocation = "E:\\newstart\\grand project\\zipfs\\" + fileName;
+			fileLocation = "/home/soumyadeep/Desktop/grand_project/zipfs/" + fileName;
 			File myObj = new File(fileLocation);
 			if (myObj.createNewFile()) {
 				FileWriter fw = new FileWriter(fileLocation);
@@ -57,12 +57,12 @@ public class ProfileService {
 
 	@Transactional
 	public Post fileFetchProcessProfilePicture(Post post) throws Throwable {
-		List<Post> posts= new ArrayList<Post>();
+		List<Post> posts = new ArrayList<Post>();
 		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), false);
 		try {
 
 			ZipFSPUser fetchFileFromFilesystem = new ZipFSPUser();
-			for(Post p : posts) {
+			for (Post p : posts) {
 				File myObj = fetchFileFromFilesystem.fetchFileFromFileSystem(p.getImagefilename());
 				Scanner myReader = new Scanner(myObj);
 				while (myReader.hasNextLine()) {
@@ -71,7 +71,6 @@ public class ProfileService {
 				myReader.close();
 				myObj.delete();
 			}
-			
 
 		} catch (FileNotFoundException e) {
 			System.out.println("An error occurred.");
@@ -79,55 +78,55 @@ public class ProfileService {
 		}
 		return posts.get(0);
 	}
-	
-	
+
 	@Transactional
 	public void fileUploadProcessPost(Post post) throws Throwable {
 		String fileLocation = null;
 		String fileName = null;
 
-		try {
-			new File("E:\\newstart\\grand project\\zipfs").mkdirs();
-			Random rand = new Random();
-			double rand_dub = rand.nextDouble();
-			fileName = post.getImagefilename() + rand_dub + ".txt";
-			fileLocation = "E:\\newstart\\grand project\\zipfs\\" + fileName;
-			File myObj = new File(fileLocation);
-			if (myObj.createNewFile()) {
-				FileWriter fw = new FileWriter(fileLocation);
-				fw.write(post.getBlobobject());
-				fw.close();
-				post.setImagefilename(fileName);
+		if (post.getImagefilename() != null) {
+			try {
+				new File("/home/soumyadeep/Desktop/grand_project/zipfs/").mkdirs();
+				Random rand = new Random();
+				double rand_dub = rand.nextDouble();
+				fileName = post.getImagefilename() + rand_dub + ".txt";
+				fileLocation = "/home/soumyadeep/Desktop/grand_project/zipfs/" + fileName;
+				File myObj = new File(fileLocation);
+				if (myObj.createNewFile()) {
+					FileWriter fw = new FileWriter(fileLocation);
+					fw.write(post.getBlobobject());
+					fw.close();
+					post.setImagefilename(fileName);
+				}
+				ZipFSPUser addFileToFilesystem = new ZipFSPUser();
+				addFileToFilesystem.addFileToZipFileSystem(fileName);
+				myObj.delete();
+			} catch (Exception e) {
+				System.out.println(e);
 			}
-			ZipFSPUser addFileToFilesystem = new ZipFSPUser();
-			addFileToFilesystem.addFileToZipFileSystem(fileName);
-			myObj.delete();
-		} catch (Exception e) {
-			System.out.println(e);
 		}
-
 		postRepository.save(post);
 	}
-	
-	
+
 	@Transactional
-	
+
 	public List<Post> fileFetchProcessPost(Post post) throws Throwable {
-		List<Post> posts= new ArrayList<Post>();
+		List<Post> posts = new ArrayList<Post>();
 		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), true);
 		try {
 
 			ZipFSPUser fetchFileFromFilesystem = new ZipFSPUser();
-			for(Post p : posts) {
-				File myObj = fetchFileFromFilesystem.fetchFileFromFileSystem(p.getImagefilename());
-				Scanner myReader = new Scanner(myObj);
-				while (myReader.hasNextLine()) {
-					p.setBlobobject(myReader.nextLine());
+			for (Post p : posts) {
+				if (p.getImagefilename() != null) {
+					File myObj = fetchFileFromFilesystem.fetchFileFromFileSystem(p.getImagefilename());
+					Scanner myReader = new Scanner(myObj);
+					while (myReader.hasNextLine()) {
+						p.setBlobobject(myReader.nextLine());
+					}
+					myReader.close();
+					myObj.delete();
 				}
-				myReader.close();
-				myObj.delete();
 			}
-			
 
 		} catch (FileNotFoundException e) {
 			System.out.println("An error occurred.");

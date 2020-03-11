@@ -22,10 +22,11 @@ export class YourWallComponent implements OnInit {
   changeListener($event: any): void {
     this.readThis($event.target);
   }
-posts:any;
-  postcaption: any;
-  postimage: any;
+  posts: any = null;
+  //postcaption: any = null;
+  postimage: any = null;
   file: File = null;
+
   readThis(inputValue: any): void {
     this.file = inputValue.files[0];
     var myReader: FileReader = new FileReader();
@@ -37,16 +38,29 @@ posts:any;
   }
 
 
-  upload() {
+  upload(postcaption: any) {
     let currentdatetime = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
-    let postData = ({
-      "username": this.authService.getUsername(),
-      "caption": this.postcaption,
-      "imagefilename": this.file.name,
-      "uploadtime": currentdatetime,
-      "ispost": 1,
-      "blobobject": this.postimage
-    });
+    let postData: any = null;
+    if (this.file == null) {
+      postData = ({
+        "username": this.authService.getUsername(),
+        "caption": postcaption,
+        "imagefilename": null,
+        "uploadtime": currentdatetime,
+        "ispost": 1,
+        "blobobject": this.postimage
+      });
+    } else {
+      postData = ({
+        "username": this.authService.getUsername(),
+        "caption": postcaption,
+        "imagefilename": this.file.name,
+        "uploadtime": currentdatetime,
+        "ispost": 1,
+        "blobobject": this.postimage
+      });
+
+    }
 
     this.profileService.postUpload(postData).subscribe(
       data => {
@@ -66,7 +80,7 @@ posts:any;
     };
     this.profileService.postShow(postData).subscribe(
       postdata => {
-        this.posts = postdata ;
+        this.posts = postdata;
         //this.postimage = data.blobobject;
       },
       error => {

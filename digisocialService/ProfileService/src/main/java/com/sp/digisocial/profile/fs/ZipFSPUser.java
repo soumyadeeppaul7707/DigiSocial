@@ -15,10 +15,12 @@ public class ZipFSPUser {
 	public void addFileToZipFileSystem(String filename) throws Throwable {
 		Map<String, String> env = new HashMap<>();
 		env.put("create", "true");
-		URI uri = URI.create("jar:file:/E:/newstart/grand%20project/zipfs/digisocialzipfs.zip");
-
+		//URI uri = URI.create("jar:file:/E:/newstart/grand%20project/zipfs/digisocialzipfs.zip"); // for windows
+		URI uri = URI.create("jar:file:/home/soumyadeep/Desktop/grand_project/zipfs/digisocialzipfs.zip"); // for linux
+		
 		try (FileSystem zipfs = FileSystems.newFileSystem(uri, env)) {
-			Path externalTxtFile = Paths.get("E:/newstart/grand project/zipfs/" + filename);
+			//Path externalTxtFile = Paths.get("/home/soumyadeep/Desktop/grand project/zipfs/" + filename); //for windows
+			Path externalTxtFile = Paths.get("/home/soumyadeep/Desktop/grand_project/zipfs/" + filename); //for linux
 			Path pathInZipfile = zipfs.getPath("/" + filename);
 			// copy a file into the zip file
 			Files.copy(externalTxtFile, pathInZipfile, StandardCopyOption.REPLACE_EXISTING);
@@ -27,9 +29,9 @@ public class ZipFSPUser {
 
 	public File fetchFileFromFileSystem(String filename) throws Throwable {
 
-		Path zipFile = Paths.get("E:/newstart/grand project/zipfs/digisocialzipfs.zip");
+		Path zipFile = Paths.get("/home/soumyadeep/Desktop/grand_project/zipfs/digisocialzipfs.zip");
 		//String fileName = filename;
-		Path outputFile = Paths.get("E:/newstart/grand project/zipfs/" + filename);
+		Path outputFile = Paths.get("/home/soumyadeep/Desktop/grand_project/zipfs/" + filename);
 
 		try (FileSystem fileSystem = FileSystems.newFileSystem(zipFile, null)) {
 			Path fileToExtract = fileSystem.getPath(filename);
