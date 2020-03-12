@@ -109,7 +109,6 @@ public class ProfileService {
 	}
 
 	@Transactional
-
 	public List<Post> fileFetchProcessPost(Post post) throws Throwable {
 		List<Post> posts = new ArrayList<Post>();
 		posts = postRepository.findByUsernameAndIspostOrderByUploadtimeDesc(post.getUsername(), true);
