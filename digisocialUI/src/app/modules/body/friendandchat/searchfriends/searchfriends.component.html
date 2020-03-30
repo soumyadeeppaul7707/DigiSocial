@@ -1,3 +1,6 @@
-<p>
-  searchfriends works!
-</p>
+<div>
+
+  <!-- <input type="text" #searchinput /> -->
+  <!-- <button type="button">search</button> -->
+  <input type="text" #searchinput (keypress)="theFriend(searchinput.value)">
+</div>
