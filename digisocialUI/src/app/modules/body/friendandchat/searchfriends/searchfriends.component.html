@@ -1,6 +1,17 @@
 <div>
+  <div>
+    <input type="text" #searchinput (keypress)="theFriend(searchinput.value)">
+  </div>
+  <div>
 
-  <!-- <input type="text" #searchinput /> -->
-  <!-- <button type="button">search</button> -->
-  <input type="text" #searchinput (keypress)="theFriend(searchinput.value)">
+    <div class="row" *ngIf="userData!='null'">
+      <div class="col-lg-4 col-md-4 col-sm-6-col-12" *ngFor="let user of userData">
+        <div>
+          <h3>{{user.username}}</h3>
+        </div>
+        <button class="btn btn-primary">Send Request</button>
+      </div>
+    </div>
+
+  </div>
 </div>

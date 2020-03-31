@@ -21,6 +21,7 @@ export class SearchfriendsComponent implements OnInit {
   friend1stname: any;
   searchtext: any;
   word: string = null;
+  userData: any = null;
 
   @HostListener('document:keypress', ['$event'])
   fetchSearchedWord(event: KeyboardEvent) {
@@ -39,6 +40,7 @@ export class SearchfriendsComponent implements OnInit {
     };
     this.searchfriendService.showUserList(searchText).subscribe(
       searchedUserDataList => {
+        this.userData = searchedUserDataList;
         console.log(searchedUserDataList);
       },
       error => {
