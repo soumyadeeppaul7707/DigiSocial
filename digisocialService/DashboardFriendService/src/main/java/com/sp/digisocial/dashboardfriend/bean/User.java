@@ -1,4 +1,4 @@
-package com.sp.digisocial.friendandchat.bean;
+package com.sp.digisocial.dashboardfriend.bean;
 
 import java.util.Date;
 

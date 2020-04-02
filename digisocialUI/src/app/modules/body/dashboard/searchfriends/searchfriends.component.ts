@@ -1,5 +1,6 @@
 import { Component, OnInit, Directive, HostListener } from '@angular/core';
-import { FriendandchatService } from '../friendandchat.service';
+import { DashboardService } from '../dashboard.service';
+import { AuthService } from 'src/app/auth.service';
 
 
 @Component({
@@ -13,7 +14,10 @@ import { FriendandchatService } from '../friendandchat.service';
 })
 export class SearchfriendsComponent implements OnInit {
 
-  constructor(private searchfriendService: FriendandchatService) { }
+  constructor(
+    private searchfriendService: DashboardService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
@@ -41,7 +45,6 @@ export class SearchfriendsComponent implements OnInit {
     this.searchfriendService.showUserList(searchText).subscribe(
       searchedUserDataList => {
         this.userData = searchedUserDataList;
-        console.log(searchedUserDataList);
       },
       error => {
         console.log(error);
@@ -49,7 +52,22 @@ export class SearchfriendsComponent implements OnInit {
     );
   }
 
+  sendFriendRequest(friend: string) {
+    let friendData = {
+      "username": this.authService.getUsername(),
+      "friendname": friend
+    };
+
+    
+  }
+
 }
+
+
+
+
+
+
 
 
 export function debounce(delay: number = 2000): MethodDecorator {

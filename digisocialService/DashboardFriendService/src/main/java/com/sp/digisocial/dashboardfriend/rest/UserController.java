@@ -1,4 +1,4 @@
-package com.sp.digisocial.friendandchat.rest;
+package com.sp.digisocial.dashboardfriend.rest;
 
 import java.util.List;
 
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sp.digisocial.friendandchat.bean.User;
-import com.sp.digisocial.friendandchat.service.FriendService;
+import com.sp.digisocial.dashboardfriend.bean.Friend;
+import com.sp.digisocial.dashboardfriend.bean.User;
+import com.sp.digisocial.dashboardfriend.service.FriendService;
 
 
 
@@ -31,6 +32,11 @@ public class UserController {
 	@PostMapping("/showusers")
 	public List<User> userList(@RequestBody User user){
 		return friendService.userList(user); 
+	}
+	
+	@PostMapping("/sendrequest")
+	public void sendFriendRequest(@RequestBody Friend friend) {
+		friendService.sendFriendRequest(friend);
 	}
 	
 }

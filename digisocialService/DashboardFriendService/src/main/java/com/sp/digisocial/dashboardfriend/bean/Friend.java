@@ -1,4 +1,4 @@
-package com.sp.digisocial.friendandchat.bean;
+package com.sp.digisocial.dashboardfriend.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

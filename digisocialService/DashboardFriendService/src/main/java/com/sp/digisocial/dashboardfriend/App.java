@@ -1,4 +1,4 @@
-package com.sp.digisocial.friendandchat;
+package com.sp.digisocial.dashboardfriend;
 
 import org.springframework.boot.SpringApplication;
 

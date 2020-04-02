@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sp.digisocial</groupId>
-	<artifactId>friendandchat</artifactId>
+	<artifactId>dashboardfriend</artifactId>
 	<!-- <version>0.0.1-SNAPSHOT</version> -->
 	<packaging>jar</packaging>
-	<name>FriendandchatService</name>
+	<name>DashboardFriendService</name>
 	<description>friend and chat service for digisocial app</description>
 
 	<parent>

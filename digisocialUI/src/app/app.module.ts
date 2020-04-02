@@ -10,6 +10,7 @@ import { RecentsModule } from './modules/body/recents/recents.module';
 import { FriendandchatModule } from './modules/body/friendandchat/friendandchat.module';
 import { ProfileModule } from './modules/body/profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardModule } from './modules/body/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterModule,
     RecentsModule,
     FriendandchatModule,
-    ProfileModule
+    ProfileModule,
+    DashboardModule
   ],
   exports: [],
   providers: [
