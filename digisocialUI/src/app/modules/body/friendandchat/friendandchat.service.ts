@@ -13,8 +13,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class FriendandchatService {
-  
-  constructor(private http: HttpClient) { }
 
+  showFriendListUrl = 'http://localhost:6000/digisocial/friend/showfriendlist';
+
+  constructor(private http: HttpClient) { }
   
+  showFriendList(json): Observable<any> {
+    return this.http.post<any>(this.showFriendListUrl, json, httpOptions);
+  }
+
 }

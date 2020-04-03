@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         if (data.authenticate) {
           this.authService.login();
           this.authService.setUsername(data.user.username);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/friends']);
         }
       },
       error => {
