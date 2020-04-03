@@ -24,10 +24,10 @@ public class Friend {
 	
 	
 	@Column(name = "fr_isfriend")
-	private boolean isFriend;
+	private boolean isfriend;
 	
 	@Column(name = "fr_req_send_accept_declined")
-	private char friendRequestStatus;
+	private char friendrequeststatus;
 
 	public int getId() {
 		return id;
@@ -53,29 +53,26 @@ public class Friend {
 		this.friendname = friendname;
 	}
 
-	public boolean isFriend() {
-		return isFriend;
+	public boolean isIsfriend() {
+		return isfriend;
 	}
 
-	public void setFriend(boolean isFriend) {
-		this.isFriend = isFriend;
+	public void setIsfriend(boolean isfriend) {
+		this.isfriend = isfriend;
 	}
 
-	public char getFriendRequestStatus() {
-		return friendRequestStatus;
+	public char getFriendrequeststatus() {
+		return friendrequeststatus;
 	}
 
-	public void setFriendRequestStatus(char friendRequestStatus) {
-		this.friendRequestStatus = friendRequestStatus;
+	public void setFriendrequeststatus(char friendrequeststatus) {
+		this.friendrequeststatus = friendrequeststatus;
 	}
 
 	@Override
 	public String toString() {
-		return "Friend [id=" + id + ", username=" + username + ", friendname=" + friendname + ", isFriend=" + isFriend
-				+ ", friendRequestStatus=" + friendRequestStatus + "]";
+		return "Friend [id=" + id + ", username=" + username + ", friendname=" + friendname + ", isfriend=" + isfriend
+				+ ", friendrequeststatus=" + friendrequeststatus + "]";
 	}
-	
-	
-	
 	
 }

@@ -1,1 +1,12 @@
 ngx-image-cropper
+
+=============================friend request status===========================================
+
+s -> friend request send
+r -> friend request received
+a -> friend request accepted
+d -> friend request declined
+
+y -> friend request send and accepted by another user
+n -> friend request send and declined by another user
+

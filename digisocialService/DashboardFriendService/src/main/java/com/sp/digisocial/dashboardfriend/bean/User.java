@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -58,6 +58,18 @@ public class User {
 
 	@Column(name = "us_middlename")
 	private String middlename;
+	
+	
+	@Transient
+	private String currentuser;
+	
+	
+	@Transient
+	private boolean isfriend; 
+	
+	
+	@Transient
+	private char friendRequestStatus;
 	
 	
 	public String getUsername() {
@@ -160,15 +172,44 @@ public class User {
 	}
 
 
+	public String getCurrentuser() {
+		return currentuser;
+	}
+
+
+	public void setCurrentuser(String currentuser) {
+		this.currentuser = currentuser;
+	}
+
+
+	public char getFriendRequestStatus() {
+		return friendRequestStatus;
+	}
+
+
+	public void setFriendRequestStatus(char friendRequestStatus) {
+		this.friendRequestStatus = friendRequestStatus;
+	}
+
+
+	public boolean isIsfriend() {
+		return isfriend;
+	}
+
+
+	public void setIsfriend(boolean isfriend) {
+		this.isfriend = isfriend;
+	}
+
+
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", id=" + id + ", password=" + password + ", email=" + email
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", mobilenumber=" + mobilenumber + ", joiningdatetime=" + joiningdatetime + ", dateofbirth="
 				+ dateofbirth + ", firstname=" + firstname + ", lastname=" + lastname + ", middlename=" + middlename
-				+ "]";
+				+ ", currentuser=" + currentuser + ", isfriend=" + isfriend + ", friendRequestStatus="
+				+ friendRequestStatus + "]";
 	}
-	
-	
-	
+
 	
 }

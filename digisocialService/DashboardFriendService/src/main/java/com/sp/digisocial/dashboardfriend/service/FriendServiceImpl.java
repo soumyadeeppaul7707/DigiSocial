@@ -1,6 +1,7 @@
 package com.sp.digisocial.dashboardfriend.service;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,23 +31,83 @@ public class FriendServiceImpl implements FriendService{
 
 	@Transactional
 	public List<User> userList(User user){
-		return userRepository.findByUsernameLike('%'+user.getUsername()+'%');
+		List<User> usersList = new ArrayList<User>();
+		usersList = userRepository.findByUsernameLike('%'+user.getUsername()+'%');
+		usersList.forEach((userObj)-> setUserForUserList(user,userObj));
+		return usersList;
+	}
+	
+	public void setUserForUserList(User user,User frienduser) {
+		Friend friend = friendRepository.findByUsernameAndFriendname(
+				user.getCurrentuser(), frienduser.getUsername());
+		frienduser.setFriendRequestStatus('0');
+		if( friend != null) {
+			frienduser.setIsfriend(friend.isIsfriend());
+			frienduser.setFriendRequestStatus(friend.getFriendrequeststatus());
+		}
 	}
 
+	
+	
 	@Transactional
 	public void sendFriendRequest(Friend friend) {
 		Friend revFriend = new Friend();
 		
-		friend.setFriend(false);
-		friend.setFriendRequestStatus('s');
+		if(friendRepository.findByUsernameAndFriendname(
+				friend.getUsername(), friend.getFriendname())!=null ) {
+			friend = friendRepository.findByUsernameAndFriendname(
+					friend.getUsername(), friend.getFriendname());
+			revFriend = friendRepository.findByUsernameAndFriendname(
+					 friend.getFriendname(), friend.getUsername());
+		}
 		
-		revFriend.setFriend(false);
+		friend.setIsfriend(false);
+		friend.setFriendrequeststatus('s');
+		
+		revFriend.setIsfriend(false);
 		revFriend.setUsername(friend.getFriendname());
 		revFriend.setFriendname(friend.getUsername());
-		revFriend.setFriendRequestStatus('r');
+		revFriend.setFriendrequeststatus('r');
 		
 		friendRepository.save(friend);
 		friendRepository.save(revFriend);
 		
+	}
+	
+	
+	@Transactional
+	public List<Friend> friendRequestReceivedList(Friend friend){
+		return friendRepository.findByUsernameAndFriendrequeststatus(
+				friend.getUsername(), friend.getFriendrequeststatus());
+	}
+	
+	@Transactional
+	public void acceptFriendRequest(Friend friend) {
+		friend = friendRepository.findByUsernameAndFriendname(
+				friend.getUsername(), friend.getFriendname());
+		friend.setIsfriend(true);
+		friend.setFriendrequeststatus('a');
+		friendRepository.save(friend);
+		
+		friend = friendRepository.findByUsernameAndFriendname(
+				friend.getFriendname(), friend.getUsername());
+		friend.setIsfriend(true);
+		friend.setFriendrequeststatus('y');
+		friendRepository.save(friend);
+	}
+	
+	@Transactional
+	public void rejectFriendRequest(Friend friend) {
+		friend = friendRepository.findByUsernameAndFriendname(
+				friend.getUsername(), friend.getFriendname());
+		friend.setIsfriend(false);
+		friend.setFriendrequeststatus('d');
+		friendRepository.save(friend);
+		
+		friend = friendRepository.findByUsernameAndFriendname(
+				friend.getFriendname(), friend.getUsername());
+		friend.setIsfriend(false);
+		friend.setFriendrequeststatus('n');
+		friendRepository.save(friend);
 	}
 }

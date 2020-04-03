@@ -15,13 +15,14 @@ import { AuthService } from 'src/app/auth.service';
 export class SearchfriendsComponent implements OnInit {
 
   constructor(
-    private searchfriendService: DashboardService,
+    private dashboardfriendService: DashboardService,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
   }
 
+  searchText: any;
   friend1stname: any;
   searchtext: any;
   word: string = null;
@@ -39,11 +40,17 @@ export class SearchfriendsComponent implements OnInit {
   @debounce()
   showWord(searchFriendName: any) {
     console.log(searchFriendName);
-    let searchText = {
-      "username": searchFriendName
+    this.searchText = {
+      "username": searchFriendName,
+      "currentuser": this.authService.getUsername()
     };
-    this.searchfriendService.showUserList(searchText).subscribe(
+    this.callShowUserList();
+  }
+
+  callShowUserList() {
+    this.dashboardfriendService.showUserList(this.searchText).subscribe(
       searchedUserDataList => {
+        console.log(searchedUserDataList);
         this.userData = searchedUserDataList;
       },
       error => {
@@ -57,8 +64,15 @@ export class SearchfriendsComponent implements OnInit {
       "username": this.authService.getUsername(),
       "friendname": friend
     };
+    this.dashboardfriendService.sendFriendRequest(friendData).subscribe(
+      data => {
+        console.log("Friend Request Send..");
+        this.callShowUserList();
+      }, error => {
+        console.log(error);
+      }
+    );
 
-    
   }
 
 }

@@ -19,7 +19,7 @@ import com.sp.digisocial.dashboardfriend.service.FriendService;
 @RestController
 @RequestMapping("/friend")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UserController {
+public class DashboardFriendController {
 
 	
 	private FriendService friendService;
@@ -39,4 +39,18 @@ public class UserController {
 		friendService.sendFriendRequest(friend);
 	}
 	
+	@PostMapping("/requestreceived")
+	public List<Friend> friendRequestReceivedList(@RequestBody Friend friend){
+		return friendService.friendRequestReceivedList(friend);
+	}
+	
+	@PostMapping("/acceptfriendrequest")
+	public void acceptFriendRequest(@RequestBody Friend friend) {
+		friendService.acceptFriendRequest(friend);
+	}
+	
+	@PostMapping("/rejectfriendrequest")
+	public void rejectFriendRequest(@RequestBody Friend friend) {
+		friendService.rejectFriendRequest(friend);
+	}
 }
