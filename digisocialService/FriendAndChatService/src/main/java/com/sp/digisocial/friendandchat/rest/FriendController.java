@@ -34,4 +34,8 @@ public class FriendController {
 		return friendService.showFriendList(friend);
 	}
 	
+	@PostMapping("/unfrienduser")
+	public void unfriendUser(@RequestBody Friend friend) {
+		friendService.unfriendUser(friend);
+	}
 }

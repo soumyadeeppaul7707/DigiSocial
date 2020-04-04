@@ -14,12 +14,17 @@ const httpOptions = {
 })
 export class FriendandchatService {
 
-  showFriendListUrl = 'http://localhost:6000/digisocial/friend/showfriendlist';
+  showFriendListUrl = 'http://localhost:9500/digisocial/friend/showfriendlist';
+  unfriendUrl = 'http://localhost:9500/digisocial/friend/unfrienduser';
 
   constructor(private http: HttpClient) { }
-  
+
   showFriendList(json): Observable<any> {
     return this.http.post<any>(this.showFriendListUrl, json, httpOptions);
+  }
+
+  unfriendUser(json): Observable<any> {
+    return this.http.post<any>(this.unfriendUrl, json, httpOptions);
   }
 
 }

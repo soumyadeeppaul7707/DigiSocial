@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
     private datePipe: DatePipe,
     private profileService: ProfileService) { }
 
-  image: any = "assets/11.jpg";
+  image: any = "assets/defaultprofilepicture.png";
 
   ngOnInit() {
     this.showProfilePicture();

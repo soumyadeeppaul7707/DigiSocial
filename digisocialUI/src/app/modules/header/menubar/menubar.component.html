@@ -1,22 +1,31 @@
-<div class="container-fluid "> <!-- menubarcomponentfixedposition fixed-top -->
+<div class="container-fluid ">
+  <!-- menubarcomponentfixedposition fixed-top -->
   <div class="row menubarstyling backgroundcolor bottomborder">
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-      <div class="menustyling">Dashboard</div> 
+      <div class="menustyling">
+        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+      </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-        <div class="menustyling">Recents</div>
+      <div class="menustyling">
+        <a class="nav-link" [routerLink]="['/recents']">Recents</a>
+      </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-        <div class="menustyling">Profile</div>
+      <div class="menustyling">
+        <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+      </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-        <div class="menustyling">Friends</div>
+      <div class="menustyling">
+        <a class="nav-link" [routerLink]="['/friends']">Friends</a>
+      </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-        <div class="menustyling">Emergency</div>
+      <div class="menustyling">Emergency</div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
-        <div class="menustyling">News&Alerts</div>
+      <div class="menustyling">News&Alerts</div>
     </div>
   </div>
 </div>

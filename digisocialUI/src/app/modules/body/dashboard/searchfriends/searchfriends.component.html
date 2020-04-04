@@ -10,7 +10,9 @@
           <h3>{{user.username}}</h3>
         </div>
 
-        <div *ngIf="!user.isfriend && (user.friendRequestStatus=='0' || user.friendRequestStatus=='n')">
+        <div *ngIf="!user.isfriend && (user.friendRequestStatus=='0' 
+        || user.friendRequestStatus=='n' || user.friendRequestStatus=='u' 
+        || user.friendRequestStatus=='v')">
           <button class="btn btn-primary" (click)="sendFriendRequest(user.username)">Send Request</button>
         </div>
         <div *ngIf="user.isfriend && user.friendRequestStatus=='y'">

@@ -8,4 +8,5 @@ import com.sp.digisocial.friendandchat.bean.User;
 public interface FriendService {
 	
 	public abstract List<Friend> showFriendList(Friend friend);
+	public abstract void unfriendUser(Friend friend); 
 }

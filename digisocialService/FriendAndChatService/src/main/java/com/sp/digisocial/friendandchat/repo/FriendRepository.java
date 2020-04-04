@@ -13,7 +13,5 @@ import com.sp.digisocial.friendandchat.bean.Friend;
 public interface FriendRepository extends JpaRepository<Friend, String>{
 
 	public List<Friend> findByUsernameAndIsfriend(String username, boolean isfriend);
-	//public Friend findByUsernameAndFriendname(String username, String friendname);
-	//public List<Friend> findByUsernameAndFriendrequeststatus(String username, char friendrequeststatus);
-	
+	public Friend findByUsernameAndFriendname(String username, String friendname);
 }

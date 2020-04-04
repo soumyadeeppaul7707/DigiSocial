@@ -9,6 +9,10 @@ import { FriendandchatService } from '../friendandchat.service';
 })
 export class FriendsComponent implements OnInit {
 
+  friendList: any;
+  friendData: any;
+  friendnameInModal: string;
+
   constructor(private authService: AuthService, private friendandchatService: FriendandchatService) { }
 
   ngOnInit() {
@@ -16,12 +20,17 @@ export class FriendsComponent implements OnInit {
   }
 
   showFriendList() {
-    let friendData = {
+    this.friendData = {
       "username": this.authService.getUsername()
     };
+    this.getFriendList();
+  }
 
-    this.friendandchatService.showFriendList(friendData).subscribe(
+  getFriendList() {
+    this.friendandchatService.showFriendList(this.friendData).subscribe(
       friendDataList => {
+        this.friendList = friendDataList;
+        console.log(this.friendList);
         console.log("friend list displayed..");
       }, error => {
         console.log(error);
@@ -29,4 +38,23 @@ export class FriendsComponent implements OnInit {
     );
   }
 
+  unfriendModal(friendname: string) {
+    this.friendnameInModal = friendname;
+  }
+
+  unfriendUser(friendname: string) {
+    console.log("This is friend ==>> " + friendname);
+    let unfriendData = {
+      "username": this.authService.getUsername(),
+      "friendname": friendname
+    }
+    this.friendandchatService.unfriendUser(unfriendData).subscribe(
+      data => {
+        console.log("Unfriended one friend... !!!!!");
+        this.getFriendList();
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
 }
